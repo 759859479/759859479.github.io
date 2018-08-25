@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>了解闭包 | 大德大威的博客</title>
+  <title>职业素养 | 大德大威的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="了解闭包">
-<meta name="keywords" content="闭包">
+  <meta name="description" content="了解职业素养">
+<meta name="keywords" content="职业素养">
 <meta property="og:type" content="article">
-<meta property="og:title" content="了解闭包">
-<meta property="og:url" content="//litten.me/2018/08/12/my-first-blog/index.html">
+<meta property="og:title" content="职业素养">
+<meta property="og:url" content="//litten.me/2018/08/13/blog-three/index.html">
 <meta property="og:site_name" content="大德大威的博客">
-<meta property="og:description" content="了解闭包">
+<meta property="og:description" content="了解职业素养">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-25T07:29:40.561Z">
+<meta property="og:updated_time" content="2018-08-25T07:48:44.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="了解闭包">
-<meta name="twitter:description" content="了解闭包">
+<meta name="twitter:title" content="职业素养">
+<meta name="twitter:description" content="了解职业素养">
   
     <link rel="alternative" href="/atom.xml" title="大德大威的博客" type="application/atom+xml">
   
@@ -159,52 +159,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-my-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-blog-three" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      了解闭包
+      职业素养
     </h1>
   
 
         
-        <a href="/2018/08/12/my-first-blog/" class="archive-article-date">
-  	<time datetime="2018-08-11T17:18:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+        <a href="/2018/08/13/blog-three/" class="archive-article-date">
+  	<time datetime="2018-08-13T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>什么是闭包？</p>
-<p>闭包就是能够读取其他函数内部变量的函数。例如在javascript中，只有函数内部的子函数才能读取局部变量，所以闭包可以理解成“定义在一个函数内部的函数“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。</p>
-<a id="more"></a>
-<p> 先看一段代码：</p>
-<p>复制代码<br>function a(){<br>    var n = 0;<br>    function inc() {<br>        n++;<br>        console.log(n);<br>    }<br>    inc();<br>    inc();<br>}<br>a(); //控制台输出1，再输出2<br>复制代码<br>简单吧。再来看一段代码：</p>
-<p>复制代码<br>function a(){<br>    var n = 0;<br>    this.inc = function () {<br>        n++;<br>        console.log(n);<br>    };<br>}<br>var c = new a();<br>c.inc();    //控制台输出1<br>c.inc();    //控制台输出2<br>复制代码<br>简单吧。</p>
-<p>什么是闭包？这就是闭包！</p>
-<p>有权访问另一个函数作用域内变量的函数都是闭包。</p>
-<p>这里 inc 函数访问了构造函数 a 里面的变量 n，所以形成了一个闭包。再来看一段代码：</p>
-<p>复制代码<br>function a(){<br>    var n = 0;<br>    function inc(){<br>       n++;<br>       console.log(n);<br>    }<br>    return inc;<br>}<br>var c = a();<br>c();    //控制台输出1<br>c();    //控制台输出2<br>复制代码<br>看看是怎么执行的：</p>
-<p>var c = couter()，这一句 couter()返回的是函数 inc，那这句等同于 var c = inc; </p>
-<p>c()，这一句等同于 inc();  注意，函数名只是一个标识（指向函数的指针），而()才是执行函数。</p>
-<p>后面三句翻译过来就是：  var c = inc;  inc();  inc();，跟第一段代码有区别吗？ 没有。</p>
-<p>什么是闭包？这就是闭包！</p>
-<p>所有的教科书教程上都喜欢用最后一段来说明闭包，但我觉得这将问题复杂化了。这里面返回的是函数名，没看过谭浩强C/C++程序设计的同学可能一下子没反应出带不带()的区别，也就是说这种写法自带一个陷阱。虽然这种写法更显高大上，但我还是喜欢将问题单一化，看看代码 1 和代码 2，你还会纠结函数的调用，你会纠结 n 的值吗？ </p>
-<p>为啥要这样写？</p>
-<p>我们知道，js的每个函数都是一个个小黑屋，它可以获取外界信息，但是外界却无法直接看到里面的内容。将变量 n 放进小黑屋里，除了 inc 函数之外，没有其他办法能接触到变量 n，而且在函数 a 外定义同名的变量 n 也是互不影响的，这就是所谓的增强“封装性”。</p>
-<p>而之所以要用 return 返回函数标识 inc，是因为在 a 函数外部无法直接调用 inc 函数，所以 return inc 与外部联系起来，代码 2 中的 this 也是将 inc 与外部联系起来而已。</p>
-<p>常见的陷阱</p>
-<p>复制代码<br>function createFunctions(){<br>    var result = new Array();<br>    for (var i=0; i &lt; 10; i++){<br>        result[i] = function(){<br>            return i;<br>        };<br>    }<br>    return result;<br>}<br>var funcs = createFunctions();<br>for (var i=0; i &lt; funcs.length; i++){<br>    console.log(funcs<a href="">i</a>);<br>}<br>复制代码<br>乍一看，以为输出 0~9 ，万万没想到输出10个10？ </p>
-<p>这里的陷阱就是：函数带()才是执行函数！ 单纯的一句 var f = function() { alert(‘Hi’); }; 是不会弹窗的，后面接一句 f(); 才会执行函数内部的代码。上面代码翻译一下就是：</p>
-<p>复制代码<br>var result = new Array(), i;<br>result[0] = function(){ return i; }; //没执行函数，函数内部不变，不能将函数内的i替换！<br>result[1] = function(){ return i; }; //没执行函数，函数内部不变，不能将函数内的i替换！<br>…<br>result[9] = function(){ return i; }; //没执行函数，函数内部不变，不能将函数内的i替换！<br>i = 10;<br>funcs = result;<br>result = null;</p>
-<p>console.log(i); // funcs<a href="">0</a>就是执行 return i 语句，就是返回10<br>console.log(i); // funcs<a href="">1</a>就是执行 return i 语句，就是返回10<br>…<br>console.log(i); // funcs<a href="">9</a>就是执行 return i 语句，就是返回10<br>复制代码<br>为什么只垃圾回收了 result，但却不收了 i 呢？ 因为 i 还在被 function 引用着啊。好比一个餐厅，盘子总是有限的，所以服务员会去巡台回收空盘子，但还装着菜的盘子他怎么敢收？ 当然，你自己手动倒掉了盘子里面的菜（=null），那盘子就会被收走了，这就是所谓的内存回收机制。</p>
-<p>至于 i 的值怎么还能保留，其实从文章开头一路读下来，这应该没有什么可以纠结的地方。盘子里面的菜，吃了一块不就应该少一块吗？</p>
-<p>总结一下</p>
-<p>闭包就是一个函数引用另外一个函数的变量，因为变量被引用着所以不会被回收，因此可以用来封装一个私有变量。这是优点也是缺点，不必要的闭包只会徒增内存消耗！另外使用闭包也要注意变量的值是否符合你的要求，因为他就像一个静态私有变量一样。闭包通常会跟很多东西混搭起来，接触多了才能加深理解，这里只是开个头说说基础性的东西。</p>
+        <p>1.在任何群里面，看到跟自己有关的信息，例如@全体，或者单独@<br>如果只需要听众表示知晓即可的，请Q1回复，如发布新规则<br>2.如果是需要听众做出具体回复的，直接回复即可，如找人<br>3.如果是需要听众做出具体行动的，直接行动即可，如开会<br>这是最基本的职业素养，当然也不要矫枉过正，由一言不发变成疯狂刷屏<br>4.不要只顾闷头写代码，QQ群和邮箱保持常开状态<br>5.同事之间有点团队意识，遇事互相知会一声<br>6.规则发布之前，如果觉得说的不够清楚或者有问题，请准备好自己的方案来交流讨论<br>8.所有频繁更新的表格，默认倒序排列，最新的更新到最前面<br>9.正确的沟通交流姿势<br>10.不了解的事不轻易下结论<br>11.学习框架的思维<br>12.技术范围内解决问题<br>13.不盲目战队<br>14.不局限自己<br>15.技术好人品好<br>16.寻找发现别人话语的价值点</p>
 
       
 
@@ -249,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">职业素养</a>
         		</li>
       		
 		</ul>
@@ -316,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/2018/08/12/my-first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/2018/08/13/blog-three/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/13/blog-three/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          职业素养
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/10/blog-two/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">了解原型链</div>
+    <a href="/2018/08/12/my-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">了解闭包</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -369,7 +335,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="my-first-blog" data-title="了解闭包" data-url="//litten.me/2018/08/12/my-first-blog/"></div>
+	<div class="ds-thread" data-thread-key="blog-three" data-title="职业素养" data-url="//litten.me/2018/08/13/blog-three/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
