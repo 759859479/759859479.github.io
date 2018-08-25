@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>Tag: 职业素养 | 大德大威的博客</title>
+  <title>常用布局 | 大德大威的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="大德大威的博客">
-<meta property="og:url" content="//litten.me/tags/职业素养/index.html">
+  <meta name="description" content="了解常用布局">
+<meta name="keywords" content="html+css布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用布局">
+<meta property="og:url" content="//litten.me/2018/08/17/blog-four/index.html">
 <meta property="og:site_name" content="大德大威的博客">
-<meta property="og:description" content="前端">
+<meta property="og:description" content="了解常用布局">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-25T08:01:30.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大德大威的博客">
-<meta name="twitter:description" content="前端">
+<meta name="twitter:title" content="常用布局">
+<meta name="twitter:description" content="了解常用布局">
   
     <link rel="alternative" href="/atom.xml" title="大德大威的博客" type="application/atom+xml">
   
@@ -152,48 +153,146 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-blog-four" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/blog-three/" class="archive-article-date">
-  	<time datetime="2018-08-13T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/blog-three/">职业素养</a>
+    <h1 class="article-title" itemprop="name">
+      常用布局
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/17/blog-four/" class="archive-article-date">
+  	<time datetime="2018-08-17T07:56:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>单列布局<br>水平居中<br>水平居中的页面布局中最为常见的一种布局形式，多出现于标题，以及内容区域的组织形式，下面介绍四种实现水平居中的方法（注：下面各个实例中实现的是child元素的对齐操作，child元素的父容器是parent元素）<br><a id="more"></a><br>使用inline-block 和 text-align实现</p>
+<p>.parent{text-align: center;}<br>.child{display: inline-block;}<br>优点：兼容性好；<br>不足：需要同时设置子元素和父元素</p>
+<p>使用margin:0 auto来实现</p>
+<p>.child{width: 200px; margin: 0 auto;}<br>优点：兼容性好<br>缺点: 需要指定宽度</p>
+<p>使用table实现</p>
+<p>.child{display: table; margin: 0 auto;}<br>优点:只需要对自身进行设置<br>不足:IE6,7需要调整结构</p>
+<p>使用绝对定位实现</p>
+<p>.parent{position:relative;}<br>/<em>或者实用margin-left的负值为盒子宽度的一半也可以实现，不过这样就必须知道盒子的宽度，但兼容性好</em>/<br>.child{position:absolute; left:50%; transform:translate(-50%);}<br>不足：兼容性差,IE9及以上可用</p>
+<p>实用flex布局实现</p>
+<p>/<em>第一种方法</em>/<br>.parent{display:flex; justify-content:center;}<br>/<em>第二种方法</em>/<br>.parent{display:flex;}<br>.child{margin:0 auto;}<br>缺点：兼容性差，如果进行大面积的布局可能会影响效率</p>
+<p>垂直居中<br>vertical-align</p>
+<p>我们都知道，每个人都有不同的嗜好，有的人喜欢吃甜食，有的人喜欢吃辣的东西，有的人不喜欢吃芹菜，有的人不喜欢吃羊肉等等。CSS中的有些元素也是这样，他们有的只对牛奶感兴趣，有的只喜欢吃坚果和果冻，而讨厌牛奶。而vertical-align呢，是个比较挑食的家伙，它只喜欢吃果冻，从小吃果冻长大，没有了果冻，它就会闹脾气，对你不理不睬。我称之为“果冻依赖型元素”，又称之为“inline-block依赖型元素”，也就是说,只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block水平）水平，其身上的vertical-align属性才会起作用。我对css-vertical-align的一些理解与认识<br>在使用vertical-align的时候，由于对齐的基线是用行高的基线作为标记，故需要设置line-height或设置display:table-cell;<br>/<em>第一种方法</em>/<br>.parent{display:table-cell;vertical-align:middle;height:20px;}<br>/<em>第二种方法</em>/<br>.parent{display:inline-block;vertical-align:middle;line-height:20px;}<br>实用绝对定位</p>
+<p>.parent{position:relative;}<br>.child{positon:absolute; top:50%; transform:translate(0,-50%);}<br>实用flex实现</p>
+<p>.parent{display:flex; align-items:center;}<br>水平垂直全部居中<br>利用vertical-align,text-align,inline-block实现</p>
+<p>.parent{display:table-cell; vertical-align:middle; text-align:center;}<br>.child{display:inline-block;}<br>利用绝对定位实现</p>
+<p>.parent{position:relative;}<br>.child{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}<br>利用flex实现</p>
+<p>.parent{display:flex;justify-content:center;align-items:center;}<br>多列布局<br>左列定宽，右列自适应<br>该布局方式非常常见，适用于定宽的一侧常为导航，自适应的一侧为内容的布局<br>左列定宽，右列自适应</p>
+<p>利用float+margin实现</p>
+<p>.left{float:left;width:100px;}<br>.right{margin-left:100px;}<br>注：IE6会有3px的bug</p>
+<p>利用float+margin(fix)实现</p>
+<p>clipboard.png</p>
+<p><div class="parent"><br>    <div class="left"></div><br>    <div class="right-fix"><br>        <div class="right"></div><br>    </div><br></div><br>.left{width:100px;float:left;}<br>.right-fix{width:100%;margin-left:-100px;float:right;}<br>.right{margin-left:100px;}<br>使用float+overflow实现</p>
+<p>.left{width:100px;float:left;}<br>.right{overflow:hidden;}<br>overflow:hidden，触发bfc模式，浮动无法影响，隔离其他元素，IE6不支持，左侧left设置margin-left当作left与right之间的边距，右侧利用overflow:hidden 进行形成bfc模式<br>如果我们需要将两列设置为等高，可以用下述方法将“背景”设置为等高，其实并不是内容的等高</p>
+<p>.left{width:100px;float:left;}<br>.right{overflow:hidden;}<br>.parent{overflow:hidden;}<br>.left,.right{padding-bottom:9999px;margin-bottom:-9999px;}<br>使用table实现</p>
+<p>.parent{display:table;table-layout:fixed;width:100%;}<br>.left{width:100px;}<br>.right,.left{display:table-cell;}<br>实用flex实现</p>
+<p>.parent{display:flex;}<br>.left{width:100px;}<br>.right{flex:1;}<br>利用右侧容器的flex:1，均分了剩余的宽度，也实现了同样的效果。而align-items 默认值为stretch，故二者高度相等</p>
+<p>右列定宽，左列自适应<br>实用float+margin实现</p>
+<p>.parent{background:red;height:100px;margin:0 auto;}<br>.left{background:green;margin-right:-100px;width:100%;float:left;}<br>.right{float:right;width:100px;background:blue;}<br>使用table实现</p>
+<p>.parent{display:table;table-layout:fixed;width:100%;}<br>.left{display:table-cell;}<br>.right{width:100px;display:table-cell;}<br>实用flex实现</p>
+<p>.parent{display:flex;}<br>.left{flex:1;}<br>.right{width:100px;}<br>两列定宽，一列自适应<br>clipboard.png</p>
+<p>基本html结构为父容器为parent,自容器为left,center,right.其中，left,center定宽，right自适应</p>
+<p>利用float+margin实现</p>
+<p>.left,.center{float:left:width:200px;}<br>.right{margin-left:400px;}<br>利用float+overflow实现</p>
+<p>.left,.center{float:left:width:200px;}<br>.right{overflow:hidden;}<br>利用table实现</p>
+<p>.parent{display:table;table-layout:fixed;width:100%;}<br>.left,.center,.right{display:table-cell;}<br>.left,.center{width:200px;}<br>利用flex实现</p>
+<p>.parent{display:flex;}<br>.left,.center{width:100px;}<br>.right{flex:1}<br>两侧定宽，中栏自适应<br>clipboard.png</p>
+<p>利用float+margin实现</p>
+<p>.left{width：100px;float:left;}<br>.center{float:left;width:100%;margin-right:-200px;}<br>.right{width:100px;float:right;}<br>利用table实现</p>
+<p>.parent{width:100%;display:table;table-layout:fixed}<br>.left,.center,.right{display:table-cell;}<br>.left{width:100px;}<br>.right{width:100px;}<br>利用flex实现</p>
+<p>.parent{display:flex;}<br>.left{width:100px;}<br>.center{flex:1;}<br>.right{width:100px;}<br>一列不定宽，一列自适应<br>clipboard.png</p>
+<p>利用float+overflow实现</p>
+<p>.left{float:left;}<br>.right{overflow:hidden;}<br>利用table实现</p>
+<p>.parent{display:table;table-layout:fixed;width:100%;}<br>.left{width:0.1%;}<br>.left,.right{display:table-cell;}<br>利用flex实现</p>
+<p>.parent{display:flex;}<br>.right{flex:1;}<br>多列等分布局<br>多列等分布局常出现在内容中，多数为功能的，同阶级内容的并排显示等。</p>
+<p>clipboard.png</p>
+<p>html结构如下所示</p>
+<p><div class="parent"><br>    <div class="column">1</div><br>    <div class="column">1</div><br>    <div class="column">1</div><br>    <div class="column">1</div><br></div><br>实用float实现</p>
+<p>.parent{margin-left:-20px}/<em>假设列之间的间距为20px</em>/<br>.column{float:left;width:25%;padding-left:20px;box-sizing:border-box;}<br>利用table实现</p>
+<p>.parent-fix{margin-left:-20px;}<br>.parent{display:table;table-layout:fixed;width:100%;}<br>.column{display:table-cell;padding-left:20px;}<br>利用flex实现</p>
+<p>.parent{display:flex;}<br>.column{flex:1;}<br>.column+.column{margin-left:20px;}<br>九宫格布局<br>使用table实现</p>
+<p><div class="parent"><br>        <div class="row"><div class="item"></div><div class="item"></div><div class="item"></div></div><br>        <div class="row"><div class="item"></div><div class="item"></div><div class="item"></div></div><br>        <div class="row"><div class="item"></div><div class="item"></div><div class="item"></div></div><br>    </div><br>.parent{display:table;table-layout:fixed;width:100%;}<br>.row{display:table-row;}<br>.item{display:table-cell;width:33.3%;height:200px;}<br>实用flex实现</p>
+<p><div class="parent"></div></p>
+<p><div class="row"><div class="item"></div><div class="item"></div><div class="item"></div></div></p>
+<p><div class="row"><div class="item"></div><div class="item"></div><div class="item"></div></div></p>
+<p><div class="row"><div class="item"></div><div class="item"></div><div class="item"></div></div><br><br>.parent{display:flex;flex-direction:column;}<br>.row{height:100px;display:flex;}<br>.item{width:100px;background:red;}<br>全屏布局<br>clipboard.png</p>
+<p>利用绝对定位实现</p>
+<p><div class="parent"></div></p>
+<p><div class="top">top</div></p>
+<p><div class="left">left</div></p>
+<p><div class="right">right</div></p>
+<p><div class="bottom">bottom</div><br><br>html,body,parent{height:100%;overflow:hidden;}<br>.top{position:absolute:top:0;left:0;right:0;height:100px;}<br>.left{position:absolute;top:100px;left:0;bottom:50px;width:200px;}<br>.right{position:absolute;overflow:auto;left:200px;right:0;top:100px;bottom:50px;}<br>.bottom{position:absolute;left:0;right:0;bottom:0;height:50px;}<br>利用flex实现</p>
+<p><div class="parent"></div></p>
+<p><div class="top">top</div></p>
+<p><div class="middle"></div></p>
+<p><div class="left">left</div></p>
+<p><div class="right">right</div><br></p>
+<p><div class="bottom">bottom</div><br><br>.parent{display:flex;flex-direction:column;}<br>.top{height:100px;}<br>.bottom{height:50px;}<br>.middle{flex:1;display:flex;}<br>.left{width:200px;}<br>.right{flex:1;overflow:auto;}<br>响应式布局<br>meta标签的实用</p>
+<p>设置布局宽度等于设备宽度，布局viewport等于度量viewport</p>
+<p><meta name="viewport" content="width=device-width,initial-scale=1"><br>媒体查询<br>HTML 4和CSS 2目前支持为不同的媒体类型设定专有的样式表, 比如, 一个页面在屏幕上显示时使用无衬线字体, 而在打印时则使用衬线字体, screen 和 print 是两种已定义的媒体类型, 媒体查询让样式表有更强的针对性, 扩展了媒体类型的功能;媒体查询由媒体类型和一个或多个检测媒体特性的条件表达式组成, 媒体查询中可用于检测的媒体特性有width、height和color（等）, 使用媒体查询, 可以在不改变页面内容的情况下, 为特定的一些输出设备定制显示效果。<br>语法<br>@media screen and (max-width:960px){….}</p>
+<link rel="stylesheet" media="screen and (max-width:960px)" href="xxx.css">
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhi.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">职业素养</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html+css布局</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -206,17 +305,124 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/2018/08/17/blog-four/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/08/13/blog-three/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">职业素养</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="blog-four" data-title="常用布局" data-url="//litten.me/2018/08/17/blog-four/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -247,9 +453,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
