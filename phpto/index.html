@@ -6,31 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>了解原型链 | 大德大威的博客</title>
+  <title>phpto | 大德大威的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="了解原型链">
-<meta name="keywords" content="原型链">
-<meta property="og:type" content="article">
-<meta property="og:title" content="了解原型链">
-<meta property="og:url" content="//litten.me/2018/08/10/blog-two/index.html">
+  <meta name="description" content="前端">
+<meta name="keywords" content="前端,js,jquery,javascript,html5,vue,开发者,程序猿,html,css,css3,用户体验">
+<meta property="og:type" content="website">
+<meta property="og:title" content="phpto">
+<meta property="og:url" content="//litten.me/phpto/index.html">
 <meta property="og:site_name" content="大德大威的博客">
-<meta property="og:description" content="了解原型链">
+<meta property="og:description" content="前端">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/ya.jpg">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yb.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yc.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yd.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/ye.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yf.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yh.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yi.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yj.png">
-<meta property="og:image" content="//litten.me/2018/08/10/blog-two/yl.png">
-<meta property="og:updated_time" content="2019-11-06T12:33:50.158Z">
+<meta property="og:updated_time" content="2019-11-06T12:50:36.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="了解原型链">
-<meta name="twitter:description" content="了解原型链">
-<meta name="twitter:image" content="//litten.me/2018/08/10/blog-two/ya.jpg">
+<meta name="twitter:title" content="phpto">
+<meta name="twitter:description" content="前端">
   
     <link rel="alternative" href="/atom.xml" title="大德大威的博客" type="application/atom+xml">
   
@@ -170,65 +159,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-blog-two" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      了解原型链
+      phpto
     </h1>
   
 
         
-        <a href="/2018/08/10/blog-two/" class="archive-article-date">
-  	<time datetime="2018-08-10T06:46:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+        <a href="/phpto/index.html" class="archive-article-date">
+  	<time datetime="2019-11-06T12:50:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>详谈JavaScript原型链</p>
-<p>目录<br>1.创建对象有几种方法<br>2.原型、构造函数、实例、原型链<br>3.instanceof的原理<br>4.new运算符</p>
-<a id="more"></a>
-<p>创建对象的方法</p>
-<p>　　在了解原型链之前，首先先了解一下创建对象的几种方式，介绍以下三种。<br><img src="/2018/08/10/blog-two/ya.jpg" alt="图片加载失败..."></p>
-<pre><code>// 第一种方式：字面量
-var o1 = {name: &apos;o1&apos;}
-var o2 = new Object({name: &apos;o2&apos;})
-  // 第二种方式：构造函数
-var M = function (name) { this.name = name; }
-var o3 = new M(&apos;o3&apos;)
-  // 第三种方式：Object.create
-var p = {name: &apos;p&apos;}
-var o4 = Object.create(p)
-</code></pre><p>　　 console.log(o1)　　　　<br>　　 console.log(o2)<br>　　 console.log(o3)<br>　　 console.log(o4)<br>打印结果:<br><img src="/2018/08/10/blog-two/yb.png" alt="图片加载失败..."></p>
-<p>对象是创建出来了，但你可能对结果很诧异，为什么不同呢？别急，慢慢来。</p>
-<p> 原型及原型链</p>
-<p>先来一张容易让人懵逼的图<br><img src="/2018/08/10/blog-two/yc.png" alt="图片加载失败..."><br>什么是原型对象？实例？构造函数？</p>
-<p>概念就不多说了，看代码吧</p>
-<p>var M = function (name) { this.name = name; }<br>var o3 = new M(‘o3’)<br> 实例就是对象，在本例中o3就是实例，M就是构造函数。<br>实例通过new一个构造函数生成的。<br>从上图中可以知道，实例的<strong>protpo</strong>指向的是原型对象。<br>实例的构造函数的prototype也是指向的原型对象。<br>原型对象的construor指向的是构造函数。</p>
-<p>再来通过下面这个图来理解一下<br><img src="/2018/08/10/blog-two/yd.png" alt="图片加载失败..."><br>那什么是原型链呢？</p>
-<p>  简单理解就是原型组成的链，对象的<strong>proto</strong>它的是原型，而原型也是一个对象，也有<strong>proto</strong>属性，原型的<strong>proto</strong>又是原型的原型，就这样可以一直通过<strong>proto</strong>想上找，这就是原型链，当向上找找到Object的原型的时候，这条原型链就算到头了。</p>
-<p>原型对象和实例之间有什么作用呢？</p>
-<p>通过一个构造函数创建出来的多个实例，如果都要添加一个方法，给每个实例去添加并不是一个明智的选择。这时就该用上原型了。</p>
-<p>在实例的原型上添加一个方法，这个原型的所有实例便都有了这个方法。</p>
-<p>接着上面的例子继续演示：<br>var M = function (name) { this.name = name; }<br>var o3 = new M(‘o3’)<br>var o5 = new M()<br>o3.<strong>proto</strong>.say=furnction(){<br>   console.log(‘hello world’)<br>}</p>
-<p>o3.say()<br>o5.say()<br>打印结果<br><img src="/2018/08/10/blog-two/ye.png" alt="图片加载失败..."><br>按照JS引擎的分析方式，在访问一个实例的属性的时候，现在实例本身中找，如果没找到就去它的原型中找，还没找到就再往上找，直到找到。这就是原型链。</p>
-<p>补充：</p>
-<p>只有函数有prototype,对象是没有的。</p>
-<p>但是函数也是有<strong>proto</strong>的，因为函数也是对象。函数的<strong>proto</strong>指向的是Function.prototype。</p>
-<p>也就是说普通函数是Function这个构造函数的一个实例。<br><img src="/2018/08/10/blog-two/yf.png" alt="图片加载失败..."><br><img src="/2018/08/10/blog-two/yh.png" alt="图片加载失败..."><br>instanceof是判断实例对象的<strong>proto</strong>和生成该实例的构造函数的prototype是不是引用的同一个地址。</p>
-<p>是返回true，否返回false。</p>
-<p>注意：实例的instanceof在比较的时候，与原型链上想上找的的构造函数相比都是true。</p>
-<p> 继续上面的代码<br> <img src="/2018/08/10/blog-two/yi.png" alt="图片加载失败..."><br> 那怎么判断实例是由哪个构造函数生成的呢？这时候就要用到constructor了。</p>
-<p>实例的原型的构造函数， obj.<strong>proto</strong>.constructor<br> <img src="/2018/08/10/blog-two/yj.png" alt="图片加载失败..."><br> new运算符</p>
-<p>new运算符的原理</p>
-<p>一个新对象被创建。它继承自foo.prototype。<br>构造函数返回一个对象。在执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新的实例。<br>new foo等同于new foo(), 只能用在不传递任何参数的情况<br>如果构造函数反悔了一个对象，那个这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那个new出来的结果为步骤1创建的对象。<br> 下面根据new的工作原理通过代码手动实现一下new运算符<br> var new2 = function (func) {<br>    var o = Object.create(func.prototype); 　　 //创建对象<br>    var k = func.call(o);　　　　　　　　　　　　　//改变this指向，把结果付给k<br>    if (typeof k === ‘object’) {　　　　　　　　　//判断k的类型是不是对象<br>        return k;　　　　　　　　　　　　　　　　　 //是，返回k<br>    } else {<br>        return o;　　　　　　　　　　　　　　　　　 //不是返回返回构造函数的执行结果<br>    }<br>}<br>验证<br> <img src="/2018/08/10/blog-two/yl.png" alt="图片加载失败..."><br> 经过上图一系列折腾，不难看出，我们手动编写的new2和new运算符的作用是一样的。</p>
-<p>通过这个例子，你是不是已经熟知了new的工作原理了呢</p>
-
+        
       
 
       
@@ -267,29 +218,7 @@ var o4 = Object.create(p)
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">原型链</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -339,7 +268,7 @@ var o4 = Object.create(p)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/2018/08/10/blog-two/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/phpto/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -351,20 +280,6 @@ var o4 = Object.create(p)
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2018/08/12/my-first-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          了解闭包
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -387,7 +302,7 @@ var o4 = Object.create(p)
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="blog-two" data-title="了解原型链" data-url="//litten.me/2018/08/10/blog-two/"></div>
+	<div class="ds-thread" data-thread-key="" data-title="phpto" data-url="//litten.me/phpto/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -443,7 +358,7 @@ var o4 = Object.create(p)
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
